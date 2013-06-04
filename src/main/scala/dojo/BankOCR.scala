@@ -35,12 +35,15 @@ object BankOCR {
 
   def split(digits: String): List[String] = {
     val lines = digits.split('\n')
-    val parts: Array[List[String]] = lines map { line =>
+    val parts = lines map { line =>
       line.grouped(3).toList
     }
-    (for (i <- (0 until parts.head.length))
-      yield Seq(parts(0)(i), parts(1)(i), parts(2)(i)).mkString("\n")).toList
-  }
+    val result = (for (i <- (0 until parts.head.length))
+      yield Seq(parts(0)(i),
+        parts(1)(i),
+        parts(2)(i)).mkString("\n"))
+
+    result.toList  }
 
   def recognize(digits: String): List[Int] = split(digits) map recognizeOneCharacter
 }

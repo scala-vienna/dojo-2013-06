@@ -35,7 +35,7 @@ object BankOCR {
       case THREE => 3
       case FOUR => 4
       case FIVE => 5
-      case _ => throw new IllegalArgumentException("Unrecognized digit")
+      case _ => throw new IllegalArgumentException(s"Unrecognized digit $character")
     }
   }
 

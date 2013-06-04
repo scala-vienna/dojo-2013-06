@@ -76,8 +76,8 @@ class BankOCRSuite extends FunSuite {
   test("recognizee 43") {
     assert(List(4, 3) === recognize(FOURTYTHREE))
   }
-  ignore("read file with numbers") {
-    val iter = scala.io.Source.fromInputStream(getClass().getResourceAsStream("/1234")).getLines().mkString("\n")
+  test("read file with numbers") {
+    val iter = scala.io.Source.fromInputStream(getClass().getResourceAsStream("/1234.txt")).getLines().mkString("\n")
     val result = recognize(iter.replace(" ", "."))
     assert(result.take(5) === List(1,2,3,4,5))
   }

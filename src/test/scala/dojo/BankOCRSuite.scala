@@ -66,4 +66,8 @@ class BankOCRSuite extends FunSuite {
     assert(out.head === FOUR)
     assert(out.tail.head === THREE)
   }
+
+  test("recognizee 43") {
+    assert(List(4, 3) === recognize(FOURTYTHREE))
+  }
 }

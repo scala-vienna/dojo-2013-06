@@ -41,4 +41,6 @@ object BankOCR {
     (for (i <- (0 until parts.head.length))
       yield Seq(parts(0)(i), parts(1)(i), parts(2)(i)).mkString("\n")).toList
   }
+
+  def recognize(digits: String): List[Int] = split(digits) map recognizeOneCharacter
 }

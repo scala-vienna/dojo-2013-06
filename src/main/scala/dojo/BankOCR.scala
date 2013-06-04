@@ -28,14 +28,14 @@ object BankOCR {
                /._|""".stripMargin('/')
 
 
-  def recognizeOneCharacter(character: String): Int = {
+  def recognizeDigit(character: String): Int = {
     character match {
       case ONE => 1
       case TWO => 2
       case THREE => 3
       case FOUR => 4
       case FIVE => 5
-      case _ => 9999999
+      case _ => throw new IllegalArgumentException("Unrecognized digit")
     }
   }
 
@@ -52,5 +52,5 @@ object BankOCR {
     result.toList
   }
 
-  def recognize(digits: String): List[Int] = split(digits) map recognizeOneCharacter
+  def recognize(digits: String): List[Int] = split(digits) map recognizeDigit
 }

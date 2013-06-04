@@ -43,23 +43,23 @@ class BankOCRSuite extends FunSuite {
   }
 
   test("recognize 1") {
-    assert(1 === recognizeOneCharacter(ONE))
+    assert(1 === recognizeDigit(ONE))
   }
 
   test("recognize 2") {
-    assert(2 === recognizeOneCharacter(TWO))
+    assert(2 === recognizeDigit(TWO))
   }
 
   test("recognize 3") {
-    assert(3 === recognizeOneCharacter(THREE))
+    assert(3 === recognizeDigit(THREE))
   }
 
   test("recognize 4") {
-    assert(4 === recognizeOneCharacter(FOUR))
+    assert(4 === recognizeDigit(FOUR))
   }
 
   test("recognize 5")  {
-    assert(5 === recognizeOneCharacter(FIVE))
+    assert(5 === recognizeDigit(FIVE))
 }
   test("split 21")  {
     val out = split(TWENTYONE)
@@ -76,8 +76,9 @@ class BankOCRSuite extends FunSuite {
   test("recognizee 43") {
     assert(List(4, 3) === recognize(FOURTYTHREE))
   }
-  test("read file with numbers") {
-    val iter = scala.io.Source.fromInputStream(getClass().getResourceAsStream("/1234"))
-
+  ignore("read file with numbers") {
+    val iter = scala.io.Source.fromInputStream(getClass().getResourceAsStream("/1234")).getLines().mkString("\n")
+    val result = recognize(iter.replace(" ", "."))
+    assert(result.take(5) === List(1,2,3,4,5))
   }
 }

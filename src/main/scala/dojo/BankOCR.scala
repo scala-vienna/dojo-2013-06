@@ -4,23 +4,19 @@ object BankOCR {
 
   val ONE = """...
               /..|
-              /..|
-            """.stripMargin('/')
+              /..|""".stripMargin('/')
 
   val TWO = """._.
               /._|
-              /|_.
-            """.stripMargin('/')
+              /|_.""".stripMargin('/')
 
   val THREE = """._.
                 /._|
-                /._|
-            """.stripMargin('/')
+                /._|""".stripMargin('/')
 
-  val FOUR = """.s_.
-                /._|
-                /._|
-              """.stripMargin('/')
+  val FOUR = """...
+               /|_|
+               /..|""".stripMargin('/')
 
 
   def recognizeOneCharacter(character: String): Int = {

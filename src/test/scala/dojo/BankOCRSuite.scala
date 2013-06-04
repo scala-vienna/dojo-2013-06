@@ -9,20 +9,36 @@ import dojo.BankOCR._
 @RunWith(classOf[JUnitRunner])
 class BankOCRSuite extends FunSuite {
 
+  val ONE = """...
+              /..|
+              /..|""".stripMargin('/')
+
+  val TWO = """._.
+              /._|
+              /|_.""".stripMargin('/')
+
+  val THREE = """._.
+                /._|
+                /._|""".stripMargin('/')
+
+  val FOUR = """...
+               /|_|
+               /..|""".stripMargin('/')
+
   test("recognize 1") {
-    assert(1 === recognizeOneCharacter(BankOCR.ONE))
+    assert(1 === recognizeOneCharacter(ONE))
   }
 
   test("recognize 2") {
-    assert(2 === recognizeOneCharacter(BankOCR.TWO))
+    assert(2 === recognizeOneCharacter(TWO))
   }
 
   test("recognize 3") {
-    assert(3 === recognizeOneCharacter(BankOCR.THREE))
+    assert(3 === recognizeOneCharacter(THREE))
   }
 
   test("recognize 4") {
-    assert(4 === recognizeOneCharacter(BankOCR.FOUR))
+    assert(4 === recognizeOneCharacter(FOUR))
   }
 
 

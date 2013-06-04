@@ -24,6 +24,9 @@ class BankOCRSuite extends FunSuite {
   val FOUR = """...
                /|_|
                /..|""".stripMargin('/')
+  val FIVE = """._.
+               /|_.
+               /._|""".stripMargin('/')
 
   test("recognize 1") {
     assert(1 === recognizeOneCharacter(ONE))
@@ -41,5 +44,8 @@ class BankOCRSuite extends FunSuite {
     assert(4 === recognizeOneCharacter(FOUR))
   }
 
+  test("recognize 5")  {
+    assert(5 === recognizeOneCharacter(FIVE))
+}
 
 }

@@ -9,6 +9,14 @@ import dojo.BankOCR._
 @RunWith(classOf[JUnitRunner])
 class BankOCRSuite extends FunSuite {
 
+  val TWENTYONE = """._....
+                    /._|..|
+                    /|_...|""".stripMargin('/')
+
+  val FOURTYTHREE = """...._.
+                      /|_|._|
+                      /..|._|""".stripMargin('/')
+
   val ONE = """...
               /..|
               /..|""".stripMargin('/')
@@ -47,5 +55,15 @@ class BankOCRSuite extends FunSuite {
   test("recognize 5")  {
     assert(5 === recognizeOneCharacter(FIVE))
 }
+  test("split 21")  {
+    val out = split(TWENTYONE)
+    assert(out.head === TWO)
+    assert(out.tail.head === ONE)
+  }
 
+  test("split 43")  {
+    val out = split(FOURTYTHREE)
+    assert(out.head === FOUR)
+    assert(out.tail.head === THREE)
+  }
 }

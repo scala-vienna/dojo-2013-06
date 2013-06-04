@@ -9,6 +9,8 @@ import dojo.BankOCR._
 @RunWith(classOf[JUnitRunner])
 class BankOCRSuite extends FunSuite {
 
+
+
   val TWENTYONE = """._....
                     /._|..|
                     /|_...|""".stripMargin('/')
@@ -35,6 +37,10 @@ class BankOCRSuite extends FunSuite {
   val FIVE = """._.
                /|_.
                /._|""".stripMargin('/')
+
+  test("test the dot-to-space converter") {
+    assert("x..x".convert() === "x  x")
+  }
 
   test("recognize 1") {
     assert(1 === recognizeOneCharacter(ONE))
@@ -69,5 +75,9 @@ class BankOCRSuite extends FunSuite {
 
   test("recognizee 43") {
     assert(List(4, 3) === recognize(FOURTYTHREE))
+  }
+  test("read file with numbers") {
+    val iter = scala.io.Source.fromInputStream(getClass().getResourceAsStream("/1234"))
+
   }
 }

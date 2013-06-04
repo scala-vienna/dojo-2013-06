@@ -2,6 +2,12 @@ package dojo
 
 object BankOCR {
 
+  implicit class MyString(str:String) {
+    def convert() = {
+      str.stripMargin('/').replaceAll("\\.", " ")
+    }
+  }
+
   val ONE = """...
               /..|
               /..|""".stripMargin('/')
@@ -43,7 +49,8 @@ object BankOCR {
         parts(1)(i),
         parts(2)(i)).mkString("\n"))
 
-    result.toList  }
+    result.toList
+  }
 
   def recognize(digits: String): List[Int] = split(digits) map recognizeOneCharacter
 }

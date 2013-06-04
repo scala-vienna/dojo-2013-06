@@ -21,4 +21,9 @@ class BankOCRSuite extends FunSuite {
     assert(3 === recognizeOneCharacter(BankOCR.THREE))
   }
 
+  test("recognize 4") {
+    assert(4 === recognizeOneCharacter(BankOCR.FOUR))
+  }
+
+
 }
